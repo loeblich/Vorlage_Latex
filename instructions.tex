@@ -1,0 +1,27 @@
+\parindent0pt % setzt Einrückungen auf 0pt, verhindert sie also
+
+%geometry
+%\geometry{a4paper,left=20mm,right=15mm, top=15mm, bottom=15mm}
+
+% paralist
+\plitemsep=-10pt % Abstand zwischen den Listenpunkten
+
+% \definecolor{sgreen}{HTML}{209d69}
+% \definecolor{sred}{HTML}{914ccd}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section} % Zur Numerierung der Bilder entsprechend der Sections. Für subsections {table}{subsection} schreiben
+
+\newcolumntype{L}{>{$}l<{$}} % Definiert in Tabellen L als Spalte, in der automatisch der math mode angewendet wird // schreibt man x^2, wird daraus $x^2$
+\newcolumntype{R}{>{$}r<{$}} % s.o. für r
+\newcolumntype{C}{>{$}c<{$}} % s.o. für c
+
+\newcolumntype{F}{>{$\collectcell\bf}c<{\endcollectcell$}} % für zentrierte Spalten, die automatisch Fett ausgegeben werden
+
+% \clubpenalty = 1000 
+% \widowpenalty = 1000 
+% \displaywidowpenalty = 1000 
+
+%\bibliographystyle{abbrvnat}
+\bibliographystyle{unsrtnat}

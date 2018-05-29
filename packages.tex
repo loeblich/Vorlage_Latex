@@ -1,0 +1,80 @@
+% Eingesetzte Werte bei Erklärungen sind mit <wert> gekennzeichnet.
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel} % deutsche Umlaute & Sonderzeichen % veraltet! -> inputenc übernimmt das.
+\usepackage{lmodern}
+
+%\usepackage[backend=bibtex,style=numeric]{biblatex} % zum aufrufen der Bibliographie aus dem .bib file, biblatex ist nicht von nöten, bibtex geht auch
+\usepackage[numbers,sort&compress]{natbib} 
+%\usepackage{cite} % zu Zitieren 
+\usepackage{amsmath}
+
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{esdiff} % für Ableitung: total: \diff{<f(x)>}{<x>}, partiell: \diffp{<f(x)>}{<x>}, Ableitung an Stelle: \diff*{<f(x,y)>}{<y>}{<Stelle>}, dritte Ableitung: \diff[<3>]{<f(x)>}{<x>}, drei Ableitungen nach zwei Variablen: \diffp{<f(x,y)>}{{<x>}{<y^2>}}, für totales Differential \tdiff oder \difft
+\usepackage{esint}
+\usepackage{float} % Fließtext um zb. Bild // für \figure[H] <- H: fließt nicht!
+\usepackage[separate-uncertainty, range-phrase=\,-\,, range-units=single, product-units = single, exponent-product=\cdot]{siunitx} % besondere Darstellung von Werten mit \SI{<Zahl>}{<Einheit>} // \SIrange{<von>}{<bis>}{<einheit>} -> 50-100m // schreibt Fehlerangaben zB. (5+-0.5)m mit \SI{(5\pm0.5)}{m}
+\usepackage{chemformula} % Zum Schreiben von chemischen Formeln, zB. \ch{^{227}_{90}Th+} oder \ch{CO2}, \ch{H20}, \ch{H+} etc.
+
+%\usepackage{verbatim}
+\usepackage{textcomp} % diverse Sonderzeichen, zB Copyright, Mho, 
+\usepackage{gensymb} % für ° mit \degree etc.
+\usepackage{amssymb} % für \mathbb{N}, \mathbb{R}, mathbb{Z} als Menge der natürlichen, reellen, ganzen Zahlen etc.
+\usepackage{bbm} % für \mathbbm{1} als Einheitsmatrix
+
+%<<<<<<Bilder>>>>>>
+\usepackage{graphicx}
+\usepackage{wrapfig} % Dinge (zB Bild) vom Text umfließen lassen // \begin{wrapfigure}[<Zeile>]{<Position>}[<Randüberhang>]{<Breite>}\end{wrapfigure} // <Position> im Text: r: rechts, l: links, i: innen, o:außen // r: Position fix, R: Position variabel // <Randüberhang> stärkere Einrückung als Text, in zb. pt angeben // <Zeile> Wie viele Zeilen dürfen um das Bild fließen (diese Option am bessten weglassen)
+\usepackage{tikz} % Zum Zeichnen direkt im Latex code
+% \usepackage[inkscape={C:/Programme/Inkscape/inkscape.exe -z -C}]{svg} % Zum Einbinden von Vektorgrafiken (.svg) % nur für Linux
+
+%<<<<<<Tabellen>>>>>>
+\usepackage{multirow} % Tabellen multirow & multicolumn
+\usepackage{longtable} % Tabellen, die über eine Seite hinausgehen. // \begin{longtable}{c|l|r} wie normale tabular
+\usepackage{booktabs} % \toprule // \bottomrule // \midrule
+%\usepackage{tabularx} % Tabellenformatierung // für \newcolumntype
+%\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % tabular: rechtsbündige Spalte mit definierter Breite // syntax: R{<breite>} // usepackage{tabularx}
+%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % tabular: linksbündige Spalte mit definierter Breite // syntax: L{<breite>}
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % tabular: zentrierte Spalte mit definierter Breite // syntax: C{<breite>}
+%\setlength{\tabcolsep}{<breite>} % tabular: freier Raum links und rechts der Spalte // 2*<breite> ^= Spaltenzwischenraum // syntax:\setlength{\tabcolsep}{<breite>} // default für <breite>: 6pt
+% Tabelle mit <a> zentrierten Spalten, deren Spaltenbreite <x>\textwidth ist und die genau mit dem Blattrand abschließt: in tabelle Spaltenbreite auf <x>\textwidth setzen (C{<x>\textwidth}}), dann freien Raum neben Spalte definieren als \setlength{\tabcolsep}{<y>\textwidth}, wobei <y>=(1-(<a>*<x>))/(2(<a>-1))
+\usepackage{collcell} % für Tabellendefinitionen
+
+
+%<<<<<<Verzierungen>>>>>>
+\usepackage{xcolor} % für Farben
+\usepackage{url} % Einfügen und Hervorheben von webadressen mit \url{<adresse>}
+% \usepackage[firstpage]{draftwatermark} % Wasserzeichen mit \SetWatermarkText{<text>} // option <firstpage> entfernen, wenn auf jeder seite erwünscht
+% \SetWatermarkAngle{0} % Drehung
+% \SetWatermarkVerCenter{260.5pt} % vertikale ausrichtung im Bild
+% \SetWatermarkScale{1.65} % 1.0 = Schriftgröße
+% \SetWatermarkText{\includegraphics{logo.png}}
+
+%<<<<<<Striche>>>>>>
+%\usepackage{cancel} % mit \cancel{<Wort>} können Dinge, zB Text durchgestrichen werden // nützlich beim Kürzen in align*s
+\usepackage{ulem} % diverse Unterstreichungsformen, \uline{<text>} underlined // \uuline{<text>} double-underlined // \uwave{<text>} wavy underline // \sout{<text>} line struck through word // \xout{<text>} marked over // \dashuline{<text>} dashed underline // \dotuline{<text>} dotted underline
+
+%<<<<<<Listen>>>>>>
+%\usepackage{enumitem} % Anpassung von Listen mit Optionen (begin{compactenum}[<option>]) // Wiederaufnahme von Listennumerierung mit <resume*> (* übernimmt auch die Option der vorherigen Liste) //für Entfernen vertikaler Abstände <noitemsep> oder <nolistsep>
+\usepackage{paralist} % Auflistungsumgebung mit \begin{compactenum}[<Zeichen>] // Auflistung mit \item // wobei <Zeichen> ein beliebiges nummerierbares Zeichen sein muss, zb. i, (i), 1, {1}, A, a, ... //Klammern und Sonderzeichen zusätzlich sind optional möglich, sowie weiterer Text in {} // fette Zahlen: \bfseries vor das <Zeichen> // \begin{compactitem}[<Zeichen>] // <Zeichen> kann zB. $\star$, x oder $\cd$ sein
+%\pltopsep=3pt % Abstand über und unter der Liste
+%\plparsep=1pt // % Abstand zwischen Absätzen eines Listenpunktes
+%\usepackage{mdwlist}
+
+%<<<<<<Pfeile>>>>>>
+\usepackage{extarrows} %beschriftete Pfeile(arrow/Arrow) oder Gleichzeichen(equal) // \<arrowname>[<unten(otional)>]{<oben>} // arrowname: zB xlongrightarrow, xLongleftrightarrow, xlongequal // Beschriftung am besten mit \arrowname[\text{<unten>}]{\text{<oben>}}
+%\usepackage{amssymb} % besondere Pfeile, können mit dem graphicx-Paket gedreht werden // z.B. \rotatebox[origin=c]{180}{$\Lsh$} ist "folgt aus"-Pfeil
+
+%<<<<<<Layout>>>>>>
+\usepackage{geometry} % ermöglicht, mit \geometry{a4paper,left=<x>mm,right=<y>mm, top=<z>mm, bottom=<v>mm} Ränderbreiten <x>,<y>,<z>,<v> festlegen
+% zum Ändern der Einrückung einers Abschnitts: \setlength{\hoffset}{-10mm} // zieht den Rand 10mm nach links // und danach: \setlength{\hoffset}{0mm} // back to default
+\usepackage{pdflscape} % Seiten im Querformat inerhalb der Umgebung \begin{landscape}
+\usepackage{caption} % für Zeilenumbrüche und Ausrichtung von captions // hier: Alle captions sind zentriert // für Lange captions im Blocksatz: \captionsetup{justification=justified} in die figure-Umgebung schreiben
+\usepackage{calc} % für \widthof{<text>} als Längenangabe des Textes
+\usepackage{scalerel} % Skalierung von Symbolen mit \scaleobj{<rel.Größe>}{<zu skalierendes Objekt>} in Textmode und \scalebox{<rel.Größe>}{<zu skalierendes Objekt>} in mathmode // dabei ist in der Klammer Textmode, also bei Bedarf $$ einfügen
+
+%\usepackage{MnSymbol}
+
+\usepackage{csquotes} % für Anführungszeichen mit \enquote{<text>}

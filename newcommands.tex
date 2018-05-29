@@ -1,0 +1,136 @@
+\newcommand{\m}{\textrm}
+\newcommand{\apx}{\approx}
+\newcommand{\cd}{\cdot}
+\newcommand{\del}{\partial}  % partielle Ableitung df
+\newcommand{\pdiff}{\diffp} % partielle Ableitung df/dt
+\newcommand{\tdiff}{\m{d}} % totales Differential df
+\newcommand{\difft}{\m{d}} % totales Differential df
+\newcommand{\gt}{\geqslant} % größer gleich
+\newcommand{\lt}{\leqslant} % kleiner gleich
+\newcommand{\PHI}{\varphi}
+\newcommand{\EPS}{\varepsilon}
+\newcommand{\sei}{\overset{!}{=}} % sei definiert als
+\newcommand{\df}{\Rightarrow} % daraus folgt - Pfeil
+\newcommand{\sgn}{\operatorname{sgn}}
+
+
+\newcommand{\vs}[1]{\vspace{#1pt}}   %erzeugt mit \vs{<zahl>} die Eigabe \vspace{<zahl>pt}, also einen freien Raum mit der Höhe <zahl>pt
+\newcommand{\hs}[1]{\hspace{#1pt}}
+
+\newcommand{\anm}{\intertext} % Kommentare in align (linksbündige Textzeile)
+\newcommand{\anr}[1]{\tag*{\bigg{|}{#1}}} % Kommentare rechtsbündig in align neben der geschriebenen Formel, ohne diese zu verrücken
+\makeatletter
+\newcommand{\subalign}[1]{% % anstelle von substack für aligned "&="
+  \vcenter{%
+    \Let@ \restore@math@cr \default@tag
+    \baselineskip\fontdimen10 \scriptfont\tw@
+    \advance\baselineskip\fontdimen12 \scriptfont\tw@
+    \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+    \lineskiplimit\lineskip
+    \ialign{\hfil$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\crcr
+      #1\crcr
+    }%
+  }
+}
+\makeatother
+%<<<<<<Elektronik>>>>>>
+\newcommand{\recht}{
+	\begin{tikzpicture}[scale=0.08]
+		\draw (0,0)--(0,1);
+		\draw (0,1)--(1,1);
+		\draw (1,1)--(1,0);
+		\draw (1,0)--(2,0);
+		\draw (2,0)--(2,1);
+	\end{tikzpicture}
+} % Rechteckspannung
+
+\DeclareRobustCommand{\gleich}{
+	\begin{tikzpicture}[scale=0.08]
+		\draw (0,0)--(2,0);
+		\draw (0,1)--(0.4,1);
+		\draw (0.8,1)--(1.2,1);
+		\draw (1.6,1)--(2,1);
+	\end{tikzpicture}
+} % Gleichspannung
+
+\newcommand{\sinus}{\backsim} % Sinusspannung
+%\newcommand{\abs}[1]{\left|#1\right|}
+
+\newcommand{\1}{\mathbbm{1}}
+
+\definecolor{uniblau}{HTML}{004A99} 
+
+% Matrizen
+\newcommand{\mat}[4]{
+	\begin{pmatrix}
+		#1&#2\\
+		#3&#4
+	\end{pmatrix}
+}
+
+\newcommand{\vek}[2]{
+	\begin{pmatrix}
+		#1\\
+		#2
+	\end{pmatrix}
+}
+
+\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}} % C++ Symbol mit \CC
+
+\newcommand{\dontmovesqrt}[1]{\smash[b]{#1}} % Den neuen Befehl \dontmovesqrt{} um den Befehl \underbrace{<eq>}_{<bla>} bei Wurzeln legen, um Wurzelform zu erhalten
+
+
+\newcommand{\twocases}[3]{% 	% geschweifte Klammer um Inhalt der ersten beiden Klammern, rechts mit Anmerkung dahinter, zb. {x}{y}{=\text{const.}}
+	\begin{rcases}%
+		#1\\
+		#2
+	\end{rcases}%
+	#3%
+}
+\newcommand{\threecases}[4]{%
+	\begin{rcases}%
+		#1\\
+		#2\\
+		#3
+	\end{rcases}%
+	#4%
+}
+\newcommand{\fourcases}[5]{%
+	\begin{rcases}%
+		#1\\
+		#2\\
+		#3\\
+		#4
+	\end{rcases}%
+	#5%
+}
+\newcommand{\fivecases}[6]{%
+	\begin{rcases}%
+		#1\\
+		#2\\
+		#3\\
+		#4\\
+		#5
+	\end{rcases}%
+	#6%
+}
+
+% definition von \paragraph als "subsubsubsection"
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+
+\newcommand{\name}{\text{Lennart Groß}}
+\newcommand{\strasse}{\text{Gosener Str. 1}}
+\newcommand{\stadt}{15732 Eichwalde}
+\newcommand{\matrikel}{Matrikel-Nr.: 214204863}
+\newcommand{\course}{Physik}
+\newcommand{\betreuer}{Prof. Dr. rer. nat. Sylvia Speller\\Dr. rer. nat. Ingo Barke}
+\newcommand{\Titelone}{Ionenleitfähigkeitsmikroskopie für nano-}
+\newcommand{\Titeltwo}{morphologische Charakterisierung von Herzzellen}
+\newcommand{\Type}{Bachelorarbeit}

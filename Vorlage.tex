@@ -1,0 +1,96 @@
+\documentclass[a4paper]{article}
+\input{packages}
+\input{instructions}
+\input{newcommands}
+
+\begin{document}
+
+% \begin{center}
+% 	\sc Thermodynamik:
+% \end{center}
+\begin{align*}
+	\tdiff{S} &= \pdiff*{S}{U}{V,\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}} \tdiff{U} + \pdiff*{S}{V}{U,\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}} \tdiff{V} + \sum_{k=1}^{K}\pdiff*{S}{{N_k}}{U,V,N_j\neq N_k}\tdiff{N_k}
+\end{align*}
+\begin{center}
+	\sc Sie müssen sich das anschaulich vorstellen.
+\end{center}
+\begin{align*}
+	\m{d}S
+	&= \frac{\del S}{\del U}\Bigg{|}_{
+	\begin{rcases}
+		V\\
+		\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}
+	\end{rcases}
+	= \m{const.}
+	}
+	\m{d}U
+	%
+	%
+	+ \frac{\del S}{\del V}\Bigg{|}_{
+	\begin{rcases}
+		U\\
+		\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}
+	\end{rcases}
+	= \m{const.}
+	}
+	\m{d}V
+	%
+	%
+	+ \sum_{k=1}^{K}\frac{\del S}{\del N_k}\Bigg{|}_{
+	\begin{rcases}
+		U\\
+		V\\
+		N_j\neq N_k
+	\end{rcases}
+	= \m{const.}
+	}
+	\m{d}N_k
+\end{align*}
+\begin{align*}
+	\m{d}S
+	&= \frac{\del S}{\del U}\Bigg{|}_{\twocases{V}{\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}}{=\m{ const.}}}\m{d}U
+	%
+	%
+	+ \frac{\del S}{\del V}\Bigg{|}_{\twocases{U}{\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}}{=\m{ const.}}}\m{d}V
+	%
+	%
+	+ \sum_{k=1}^{K}\frac{\del S}{\del N_k}\Bigg{|}_{\threecases{U}{V}{N_j\neq N_k}{=\m{ const.}}}\m{d}N_k
+\end{align*}
+\begin{align*}
+	\m{d}S
+	&= \del_{U}S\Bigg{|}_{\twocases{V}{\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}}{=\m{ const.}}}\m{d}U
+	%
+	%
+	+ \del_{V}S\Bigg{|}_{\twocases{U}{\scalebox{.7}{$\displaystyle{\sum_{k=1}^{K}N_k}$}}{=\m{ const.}}}\m{d}V
+	%
+	%
+	+ \sum_{k=1}^{K}\del_{N_k}S\Bigg{|}_{\threecases{U}{V}{N_j\neq N_k}{=\m{ const.}}}\m{d}N_k
+\end{align*}
+\begin{align*}
+	\tdiff{S} &
+	= \pdiff*{S}{U}{V,\{N_j\}} \tdiff{U} 
+	+ \pdiff*{S}{V}{U,\{N_j\}} \tdiff{V} 
+	+ \sum_{k=1}^{K}\pdiff*{S}{{N_k}}{U,V,\{N_j\neq N_k\}}\tdiff{N_k}
+\end{align*}
+\begin{center}
+	\sc Sie müssen sich das anschaulich vorstellen.
+\end{center}
+\begin{align*}
+	\iiint\limits_V \! \frac{f(\vec{\heartsuit})}{\varrho} \, \m{d}V = \oiint \frac{1}{\varrho}\frac{\partial \Phi}{\partial n} - \Phi \frac{\partial \left(\frac{1}{\varrho}\right)}{\partial n} \m{d}S - 4\pi \Phi_0
+\end{align*}
+\begin{center}
+    \sc{Sie müssen sich das anschaulich vorstellen.}
+\end{center}
+\begin{align*}
+	\sum_{\substack{k_0,k_1,\ldots\ge0\\k_0+k_1+\cdots=0}}a_{0k_0} a_{1k_1}\cdots
+\end{align*}
+% \begin{align*}
+% 	F(A) &= \sum_{\substack{\sigma\in S_\m{n}\\\sigma(j_1)< \sigma(j_2)}}\left[\sgn(\sigma)right]
+% \end{align*}
+\begin{align*}
+	\oiint\limits_{\del V} \frac{\Phi(\vec{\heartsuit})}{42} \tdiff{S} - 4\pi\Phi_0 &= \frac{1}{N_0} \iiint\limits_V \sum_{\subalign{i,j&=0 \\ i&\neq j}}^{42} \pdiff*{N_i}{\Phi}{V}-\frac{\dot{N}_j}{\vec{\heartsuit}(\Phi)}\tdiff{V}
+\end{align*}
+\begin{center}
+	\sc Sie müssen sich das anschaulich vorstellen.
+\end{center}
+\end{document}

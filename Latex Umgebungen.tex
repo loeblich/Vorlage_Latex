@@ -1,0 +1,152 @@
+\documentclass[a4paper]{article}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ALIGN, mit Anmerkungen
+
+\begin{align*} 
+3 + 5 	&= 7\\
+6 		&= 4 + 2 	\tag*{steht rechts am Rand neben der Zeile}
+\intertext{Erklärungen, linkssbündig}
+4 		&= 9 - 2\\
+a 		&= \underbrace{2+4-2+2}_{$=6$ glaube ich} \cdot b
+\end{align*} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ALIGN, Formeln zu einer Nummer zusammenfassen inerhalb der split-Umgebung
+
+\begin{align}
+	\begin{split}
+		\left.
+		\begin{array}{l l}
+			\Gamma(D^0\rightarrow K^- K^+)  \\ 
+			\Gamma(\overline{D^0}\rightarrow K^- K^+)
+		\end{array}
+		\right\} &\sim \sin^2{\theta_\m{c}}\cd\cos^2{\theta_\m{c}}\\
+		x &= y^2
+	\end{split}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ALIGN, Formeln selbst taggen (auch mehrere gemeinsam)
+
+\begin{align}
+	&\begin{array}{ll}
+		N_\m{total} &= \num{1850}\\
+		N_\m{Untergrund} &= \num{68}
+	\end{array} \tag{$K^+K^-$}\\
+	&\begin{array}{ll}
+		N_\m{total} &= \num{1455}\\
+		N_\m{Untergrund} &= \num{678}
+	\end{array} \tag{$\pi^-\pi^+$}\\
+	& N_\m{Signal} &= \num{6784} \tag{all}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ALIGN, Zeilenumbruch unter einer Wurzel
+
+\begin{align*}
+	\Delta \theta_\m{c} &= \sqrt{
+		\begin{aligned}
+			 &\left(\frac{\partial \theta_\m{c}}{\partial N_\m{obs}(D^0\rightarrow KK)}\Delta N_\m{obs}(D^0\rightarrow KK)\right)^2 \\
+			+&\left(\frac{\partial \theta_\m{c}}{\partial N_\m{obs}(D^0\rightarrow K\pi)}\Delta N_\m{obs}(D^0\rightarrow K\pi)\right)^2\\
+			+&\left(\frac{\partial \theta_\m{c}}{\partial N_\m{obs}(D^0\rightarrow \pi\pi)}\Delta N_\m{obs}(D^0\rightarrow \pi\pi)\right)^2
+		\end{aligned}
+	}\\
+	&= \num{1.34e-4}\\
+	&= \SI{7.68e-3}{\degree}
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MEHRERE BILDER NEBENEINANDER
+%für mehrere Zeilen untereinander alles außer der äußeren Figure-Umgebung darunterkopieren, mit \\ von der ersten Bildreihe trennen.
+
+\begin{figure}[H]
+%\renewcommand*\figurename{Abb.}
+	\begin{minipage}[t]{.48\linewidth}
+		\begin{center}
+			\includegraphics[width=\textwidth]{scope/scope_0.png}
+			\caption{Sprungantwort des P-Reglers}
+			%\label{fig:}
+		\end{center}
+		Wird die Regelabweichung negativ, so springt die Stellgröße sofort ins Positive, es kommt jedoch auch zu einem Überschwingen, so dass die Regelung zwar schnell, jedoch auch unpräzise erolgt.
+	\end{minipage}%
+	\hspace{.04\linewidth}
+	\begin{minipage}[t]{.48\linewidth}
+		\begin{center}
+			\includegraphics[width=\textwidth]{scope/scope_1.png}
+			\caption{Sprungantwort des I-Reglers}
+			%\label{fig:}
+		\end{center}
+		Die Sprungantwort steigt langsam an, wenn der Regelabweichung negativ wird und passt so die Stellgröße langsam und ohne Überschwingen an.
+	\end{minipage}%
+	%\caption{}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EIN BILD
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{scope_2.png}
+	%\caption{}
+	%\label{fig:}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TABELLE mit zusammengefassten Spalten
+
+\begin{center}							% optional, aber sieht gut aus und rückt Tabelle oben und unten vom Text ab
+	\begin{tabular}{c@{\hs{20}}ClrC}    % Spalten: c:zentriert, l:linksbündig, r:rechtsbündig, C:zentriert und in $$ (mathmode)
+		\toprule
+		das	& ist & der & \multicolumn{2}{C}{\m{Tabellenkopf}} \\
+		\cmidrule(lr){1-2}\cmidrule(lr){4-5}%         %Prozentzeichen nicht vergessen!
+		$I_r$ & I_c && \multicolumn{2}{c}{usw...}\\
+		\midrule
+		0.00                          &       & -3.26 &       & -2.29 \\
+		3.93                          & -3.44 & -3.23 & -3.02 & -2.24 \\
+		\multirow{2}{*}{00}           & -3.39 & -3.20 & -3.01 & -2.19 \\
+		                              & -3.36 & -3.18 & -3.00 & -2.15 \\
+		2.50                          & -3.34 & -3.16 & -2.97 & -2.13 \\
+		2.03                          & -3.25 & -3.13 & -3.00 & -2.11 \\
+		1.54                          & -3.18 & -3.10 & -3.02 & -2.11 \\
+		1.05                          & -3.19 & -3.12 & -3.04 & -2.09 \\
+		2.51                          & -3.26 & -3.10 & -2.94 & -2.04 \\
+		3.92                          & -3.30 & -3.09 & -2.87 & -2.01 \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TABELLE NEBEN GRAPH
+
+\begin{figure}[H]
+	\begin{minipage}{.8\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{1a.png}
+			%\label{fig:}
+		\end{figure}	
+	\end{minipage}%
+	\begin{minipage}{.2\textwidth}
+		\begin{center}
+			\begin{tabular}{CC}
+				\toprule
+				\PHI/\si{\degree}	& U_a/\si{mV} \\
+				\midrule
+				0					& 445.1 \\
+				12.9				& 486.7 \\
+				28					& 621.2 \\
+				45.3				& 799.4 \\
+				60.36				& 893.6 \\
+				75.45				& 963.9 \\
+				90.54				& 980.2 \\
+				103.47				& 951.7 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+	\end{minipage}%
+	\caption{$U_a(\PHI)$}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  BILD MIT RAHMEN ÜBER ALLES DARUNTER LEGEN
+
+\begin{tikzpicture}[remember picture,overlay]% % wird über alles drübergelegt, was zuvor compiliert wurde. die Zahlen in () sind die Position vom Ort des Einfügens im Dokument aus, positive Zahlen nach oben/rechts.
+\node[fill=white,thick,minimum width=3cm,minimum height=4cm,inner sep=0pt] (b) at (12.8,3.1){\fcolorbox{black}{white}{\includegraphics[width=.2\linewidth]{auswahl2.jpg}}};%
+\end{tikzpicture}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{document}
